@@ -36,4 +36,82 @@ int StringCase(va_list arg)
 	}
 	return (i);
 }
+/**
+ *DecimalCase - Print Decimal
+ *@arg: argument
+ *Return: Int
+ */
+int DecimalCase(va_list arg)
+{
+	int num, digit, n = va_arg(arg, int);
+	int j = 1, i = 1, last = n % 10;
 
+	n = n / 10;
+	num = n;
+	if (last < 0)
+	{
+		_putchar('-');
+		num = - num;
+		n = -n;
+		last = -last;
+		i++;
+	}
+	if (num > 0)
+	{
+		while (num / 10 != 0)
+		{
+			j *= 10;
+			num /= 10;
+		}
+		num = n;
+		while (j > 0)
+		{
+			digit = num / j;
+			_putchar(digit + '0');
+			num = num - (digit * j);
+			j /= 10;
+			i++;
+		}
+	}
+	_putchar(last + '0');
+	return (i);
+}
+/**IntegerCase - Print integer
+ *@arg: argument
+ *Return: Int
+ */
+int IntegerCase(va_list arg)
+{
+	int num, digit, n = va_arg(arg, int);
+	int j = 1, i = 1, last = n % 10;
+
+	n = n / 10;
+	num = n;
+	if (last < 0)
+	{
+		_putchar('-');
+		num = - num;
+		n = -n;
+		last = -last;
+		i++;
+	}
+	if (num > 0)
+	{
+		while (num / 10 != 0)
+		{
+			j *= 10;
+			num /= 10;
+		}
+		num = n;
+		while (j > 0)
+		{
+			digit = num / j;
+			_putchar(digit + '0');
+			num = num - (digit * j);
+			j /= 10;
+			i++;
+		}
+	}
+	_putchar(last + '0');
+	return (i);
+}
