@@ -23,6 +23,5 @@ int IntegerCase(va_list arg);
 
 int OctCase(va_list arg);
 int UnsignedCase(va_list arg);
-int BinaryCase(va_list arg);
 
 #endif
