@@ -10,6 +10,7 @@ int CharacterCase(va_list arg)
 {
 	char c;
 	int i = 1;
+
 	c = va_arg(arg, int);
 	_putchar(c);
 	return (i);
@@ -62,13 +63,15 @@ int x = va_arg(arg, int), BaseExp = 1, len = 0, num;
 	}
 	return (len);
 }
-/**IntegerCase - Print integer
+
+/**
+ *IntegerCase - Print integer
  *@arg: argument
  *Return: Int
  */
 int IntegerCase(va_list arg)
 {
-        int x = va_arg(arg, int), BaseExp = 1, len = 0, num;
+	int x = va_arg(arg, int), BaseExp = 1, len = 0, num;
 
 	if (x < 0)
 	{

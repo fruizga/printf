@@ -3,9 +3,9 @@
 #include <stdarg.h>
 /**
  *struct print - structure for conversion
- *
- *
- *
+ *@print: print
+ *@f: pointer to function
+ *return: int
  */
 typedef struct print
 {
