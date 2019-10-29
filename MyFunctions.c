@@ -43,38 +43,24 @@ int StringCase(va_list arg)
  */
 int DecimalCase(va_list arg)
 {
-	int num, digit, n = va_arg(arg, int);
-	int j = 1, i = 1, last = n % 10;
+int x = va_arg(arg, int), BaseExp = 1, len = 0, num;
 
-	n = n / 10;
-	num = n;
-	if (last < 0)
+	if (x < 0)
 	{
-		_putchar('-');
-		num = - num;
-		n = -n;
-		last = -last;
-		i++;
+		len += _putchar('-');
+		num = x * (-1);
 	}
-	if (num > 0)
+	else
+	{num = x; }
+	while (num / BaseExp > 9)
+	{BaseExp *= 10; }
+	while (BaseExp != 0)
 	{
-		while (num / 10 != 0)
-		{
-			j *= 10;
-			num /= 10;
-		}
-		num = n;
-		while (j > 0)
-		{
-			digit = num / j;
-			_putchar(digit + '0');
-			num = num - (digit * j);
-			j /= 10;
-			i++;
-		}
+		len += _putchar(num / BaseExp + '0');
+		num %= BaseExp;
+		BaseExp /= 10;
 	}
-	_putchar(last + '0');
-	return (i);
+	return (len);
 }
 /**IntegerCase - Print integer
  *@arg: argument
@@ -82,36 +68,22 @@ int DecimalCase(va_list arg)
  */
 int IntegerCase(va_list arg)
 {
-	int num, digit, n = va_arg(arg, int);
-	int j = 1, i = 1, last = n % 10;
+        int x = va_arg(arg, int), BaseExp = 1, len = 0, num;
 
-	n = n / 10;
-	num = n;
-	if (last < 0)
+	if (x < 0)
 	{
-		_putchar('-');
-		num = - num;
-		n = -n;
-		last = -last;
-		i++;
+		len += _putchar('-');
+		num = x * (-1);
 	}
-	if (num > 0)
+	else
+	{num = x; }
+	while (num / BaseExp > 9)
+	{BaseExp *= 10; }
+	while (BaseExp != 0)
 	{
-		while (num / 10 != 0)
-		{
-			j *= 10;
-			num /= 10;
-		}
-		num = n;
-		while (j > 0)
-		{
-			digit = num / j;
-			_putchar(digit + '0');
-			num = num - (digit * j);
-			j /= 10;
-			i++;
-		}
+		len += _putchar(num / BaseExp + '0');
+		num %= BaseExp;
+		BaseExp /= 10;
 	}
-	_putchar(last + '0');
-	return (i);
+	return (len);
 }
