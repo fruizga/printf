@@ -11,19 +11,18 @@ int UnsignedCase(va_list arg)
 	unsigned int num;
 
 	num = va_arg(arg, unsigned int);
-	do {DigitExp *= 10; }
-	while ((num / DigitExp) > 9);
-	do
-	{
+	do {
+		DigitExp *= 10;
+	} while ((num / DigitExp) > 9);
+	do {
 		len += _putchar((num / DigitExp) + '0');
 		num %= DigitExp;
 		DigitExp /= 10;
-	}
-	while (DigitExp != 0);
+	} while (DigitExp != 0);
 	return (len);
 }
 /**
- *UnsignedCase - Prints unsigned int argument
+ *BinaryCase - Prints unsigned int argument
  *@arg:argument
  *Return: int
  */
@@ -32,12 +31,10 @@ int BinaryCase(va_list arg)
 	int *MyArr, i, cnt = 0;
 	unsigned int x = va_arg(arg, unsigned int), substitute = x;
 
-	do
-	{
+	do {
 		x = x / 2;
 		cnt++;
-	}
-	while (x / 2 != 0);
+	} while (x / 2 != 0);
 	cnt++;
 	MyArr = malloc(cnt * sizeof(int));
 	if (MyArr == NULL)
