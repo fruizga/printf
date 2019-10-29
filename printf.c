@@ -1,6 +1,6 @@
+#include "holberton.h"
 #include <stdlib.h>
 #include <stdarg.h>
-#include "holberton.h"
 /**
  *_printf - output based on the format
  *@format: char
@@ -22,6 +22,8 @@ int _printf(const char *format, ...)
 	{return (-1); }
 	for (i = 0; format != NULL && format[i] != '\0'; i++)
 	{
+		if (format[i] == '\0')
+		{return (-1); }
 		if (format[i] == '%' && format[i + 1] != '%')
 		{
 			for (j = 0; print[j].f != NULL; j++)
