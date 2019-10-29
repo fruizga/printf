@@ -1,16 +1,74 @@
-PRUEBA
-PRUEBA
-PRUEBA
-Allowed editors: vi, vim, emacs
-All your files will be compiled on Ubuntu 14.04 LTS
-Your programs and functions will be compiled with gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic
-All your files should end with a new line
-A README.md file, at the root of the folder of the project is mandatory
-Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
-You are not allowed to use global variables
-No more than 5 functions per file
-In the following examples, the main.c files are shown as examples. You can use them to test your functions, but you don’t have to push them to your repo (if you do we won’t take them into account). We will use our own main.c files at compilation. Our main.c files might be different from the one shown in the examples
-The prototypes of all your functions should be included in your header file called holberton.h
-Don’t forget to push your header file
-All your header files should be include guarded
-Note that we will not provide the _putchar function for this project
+# Printf Program Manual
+
+1149@holbertonschool.com to correct errors
+
+## **NAME**
+
+_printf - function made by Holberton way
+
+## **SYNOPSIS**
+
+        _printf(constchar*format,...)
+
+       #include <stdarg.h>
+
+       int _printf(const char *format, ...);
+
+       int _putchar(char c);
+
+       int CharacterCase(va_list arg);
+
+       int StringCase(va_list arg);
+
+       int DecimalCase(va_list arg);
+
+       int IntegerCase(va_list arg);
+
+       int OctCase(va_list arg);
+
+       int UnsignedCase(va_list arg);
+
+       int BinaryCase(va_list arg);
+       _
+
+       _____________________________________________
+
+ ## **DESCRIPTION**
+
+printf function produces output according to a format as described below.
+
+### Format
+
+The  function  takes parameters to generate the output, first character case that invoques the function to define the process to do, in this case represents
+       the data type to print in console; the next is one or more parameters, they are variable names. Then, call the corresponding function for each  case  (char,
+       string, integer, float, double, hex)
+
+### Format specifiers
+
+**c**      prints a single character.
+
+**s**      prints a string teating it like a array of characters.
+
+**d**      prints a decimal number an also a big integer.
+
+**i**      prints an integer number.
+
+**o**      converts a number in octal and then print it.
+
+**u**      prints the unsigned case.
+
+**b**      converts a number in a binary and then print it.
+
+## SEE ALSO
+
+printf(3) printf
+
+## BUGS
+
+All you can imagine maybe a bug.
+
+## AUTHOR
+
+Jose Díaz and Faber Andres Ruiz (1194@holbertonschool.com - 1096@holbertonschool.com)
+
+28 October 2019 
