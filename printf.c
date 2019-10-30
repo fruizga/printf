@@ -1,48 +1,70 @@
 #include "holberton.h"
-#include <stdlib.h>
-#include <stdarg.h>
 /**
- *_printf - output based on the format
- *@format: char
- *Return: number of characters printed
+ *print_op - Check the specifier to print
+ *@format: string passed
+ *@print_arr: array
+ *@arg: list of arguments to print
+ *Return: number
+ */
+int print_op(const char *format, print_type *print_arr, va_list arg)
+{
+	char a;
+	int count = 0, b = 0, c = 0;
+
+	a = format[b];
+	while (a != '\0')
+	{
+		if (a == '%')
+		{
+			c = 0;
+			b++;
+			a = format[b];
+			while (print_arr[c].print != NULL &&
+			       a != *(print_arr[c].print))
+			{c++; }
+			if (print_arr[c].print != NULL)
+			{count = count + print_arr[c].f(arg); }
+			else
+			{
+				if (a == '\0')
+				{return (-1); }
+				if (a != '%')
+				{count += _putchar('%'); }
+				count += _putchar(a);
+			}
+		}
+		else
+		{count += _putchar(a); }
+		b++;
+		a = format[b];
+	}
+	return (count);
+}
+
+/**
+ *_printf - Prints output according to format
+ *@format: string being passed
+ *Return: char
  */
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	unsigned int i, j, unknownChar = 0, len = 0;
+	int a = 0;
 
-	print_type print[] = {
-		{"c", CharacterCase}, {"s", StringCase},
-		{"d", DecimalCase}, {"i", IntegerCase},
-		{"o", OctCase},	{"u", UnsignedCase},
+	print_type ops[] = {
+		{"c", CharacterCase},
+		{"s", StringCase},
+		{"d", DecimalCase},
+		{"i", IntegerCase},
+		{"u", UnsignedCase},
+		{"o", OctCase},
 		{NULL, NULL}
 	};
-	va_start(arg, format);
+
 	if (format == NULL)
 	{return (-1); }
-	for (i = 0; format != NULL && format[i] != '\0'; i++)
-	{
-		if (format[i] == '\0')
-		{return (-1); }
-		if (format[i] == '%' && format[i + 1] != '%')
-		{
-			for (j = 0; print[j].f != NULL; j++)
-			{
-				if (format[i + 1] == print[j].print[0])
-				{
-				len = len + print[j].f(arg);
-				unknownChar = 1;
-				i++;
-				}
-			}
-			if (unknownChar == 0)
-			{_putchar(format[i]), len += 1;	}
-		}
-		else if (format[i] == '%' && format[i + 1] == '%')
-		{_putchar('%'),	i++, len = len + 1; }
-		else
-		{_putchar(format[i]), len = len + 1; }
-	}
+	va_start(arg, format);
+	a = print_op(format, ops, arg);
 	va_end(arg);
-	return (len);
+	return (a);
 }

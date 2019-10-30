@@ -1,6 +1,10 @@
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
 #include <stdarg.h>
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 /**
  *struct print - structure for conversion
  *@print: print
@@ -14,6 +18,7 @@ typedef struct print
 } print_type;
 
 int _printf(const char *format, ...);
+int print_op(const char *format, print_type *print_arr, va_list arg);
 int _putchar(char c);
 
 int CharacterCase(va_list arg);
