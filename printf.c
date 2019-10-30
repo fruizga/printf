@@ -3,36 +3,40 @@
  *print_op - Check the specifier to print
  *@format: string passed
  *@print_arr: array
- *@arg: list of arguments to print
+ *@list: list of arguments to print
  *Return: number
  */
 int print_op(const char *format, print_type *print_arr, va_list arg)
 {
-	int count = 0, i = 0, j = 0;
+	char a;
+	int count = 0, b = 0, c = 0;
 
-	while (format[i] != '\0')
+	a = format[b];
+	while (a != '\0')
 	{
-		if (format[i] == '%')
+		if (a == '%')
 		{
-			j = 0;
-			i++;
-			while (print_arr[j].print != NULL &&
-			       format[i] != *(print_arr[j].print))
-			{j++; }
-			if (print_arr[j].print != NULL)
-			{count = count + print_arr[j].f(arg); }
+			c = 0;
+			b++;
+			a = format[b];
+			while (print_arr[c].print != NULL &&
+			       a != *(print_arr[c].print))
+			{c++; }
+			if (print_arr[c].print != NULL)
+			{count = count + print_arr[c].f(arg); }
 			else
 			{
-				if (format[i] == '\0')
+				if (a == '\0')
 				{return (-1); }
-				if (format[i] != '%')
+				if (a != '%')
 				{count += _putchar('%'); }
-				count += _putchar(format[i]);
+				count += _putchar(a);
 			}
 		}
 		else
-		{count += _putchar(format[i]); }
-		i++;
+		{count += _putchar(a); }
+		b++;
+		a = format[b];
 	}
 	return (count);
 }
@@ -45,12 +49,12 @@ int print_op(const char *format, print_type *print_arr, va_list arg)
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int Result = 0;
+	int a = 0;
 
 	print_type ops[] = {
 		{"c", CharacterCase},
 		{"s", StringCase},
-		{"d", DecimalCase},
+		{"d", IntegerCase},
 		{"i", IntegerCase},
 		{"u", UnsignedCase},
 		{"o", OctCase},
@@ -60,7 +64,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 	{return (-1); }
 	va_start(arg, format);
-	Result = print_op(format, ops, arg);
+	a = print_op(format, ops, arg);
 	va_end(arg);
-	return (Result);
+	return (a);
 }

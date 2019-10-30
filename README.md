@@ -69,6 +69,6 @@ All you can imagine maybe a bug.
 
 ## AUTHOR
 
-Jose Díaz and Faber Andres Ruiz (1194@holbertonschool.com - 1096@holbertonschool.com)
+Jose Díaz and Faber Andres Ruiz (1149@holbertonschool.com - 1096@holbertonschool.com)
 
 28 October 2019 
