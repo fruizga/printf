@@ -1,6 +1,4 @@
 #include "holberton.h"
-#include <stdlib.h>
-#include <stdarg.h>
 /**
  *CharacterCase - Print a character
  *@arg: Argument

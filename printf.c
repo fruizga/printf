@@ -8,35 +8,31 @@
  */
 int print_op(const char *format, print_type *print_arr, va_list arg)
 {
-	char a;
-	int count = 0, b = 0, c = 0;
+	int count = 0, i = 0, j = 0;
 
-	a = format[b];
-	while (a != '\0')
+	while (format[i] != '\0')
 	{
-		if (a == '%')
+		if (format[i] == '%')
 		{
-			c = 0;
-			b++;
-			a = format[b];
-			while (print_arr[c].print != NULL &&
-			       a != *(print_arr[c].print))
-			{c++; }
-			if (print_arr[c].print != NULL)
-			{count = count + print_arr[c].f(arg); }
+			j = 0;
+			i++;
+			while (print_arr[j].print != NULL &&
+			       format[i] != *(print_arr[j].print))
+			{j++; }
+			if (print_arr[j].print != NULL)
+			{count = count + print_arr[j].f(arg); }
 			else
 			{
-				if (a == '\0')
+				if (format[i] == '\0')
 				{return (-1); }
-				if (a != '%')
+				if (format[i] != '%')
 				{count += _putchar('%'); }
-				count += _putchar(a);
+				count += _putchar(format[i]);
 			}
 		}
 		else
-		{count += _putchar(a); }
-		b++;
-		a = format[b];
+		{count += _putchar(format[i]); }
+		i++;
 	}
 	return (count);
 }
@@ -49,7 +45,7 @@ int print_op(const char *format, print_type *print_arr, va_list arg)
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int a = 0;
+	int Result = 0;
 
 	print_type ops[] = {
 		{"c", CharacterCase},
@@ -64,7 +60,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 	{return (-1); }
 	va_start(arg, format);
-	a = print_op(format, ops, arg);
+	Result = print_op(format, ops, arg);
 	va_end(arg);
-	return (a);
+	return (Result);
 }
