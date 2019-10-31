@@ -30,5 +30,8 @@ int OctCase(va_list arg);
 int UnsignedCase(va_list arg);
 int binaryNum(va_list arg);
 int rooot13(va_list arg);
+int _hex_str(unsigned int n, unsigned int hex, char alpha);
+int _hex_l(va_list arg);
+int _hex_u(va_list arg);
 
 #endif
