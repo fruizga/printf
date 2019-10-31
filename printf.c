@@ -27,7 +27,7 @@ int print_op(const char *format, print_type *print_arr, va_list arg)
 				{return (-1); }
 				if (format[i] != '%')
 				{count += _putchar('%'); }
-				count += _putchar(format[i]);
+					count += _putchar(format[i]);
 			}
 		}
 		else
@@ -45,7 +45,7 @@ int print_op(const char *format, print_type *print_arr, va_list arg)
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int a = 0;
+	int a;
 
 	print_type ops[] = {
 		{"c", CharacterCase},
@@ -54,6 +54,7 @@ int _printf(const char *format, ...)
 		{"i", IntegerCase},
 		{"u", UnsignedCase},
 		{"o", OctCase},
+		{"b", binaryNum},
 		{NULL, NULL}
 	};
 

@@ -33,5 +33,5 @@ int OctCase(va_list arg)
 		_putchar(MyArr[i] + '0');
 	}
 	free(MyArr);
-	return (cnt);
+	return (0);
 }

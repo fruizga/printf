@@ -9,11 +9,10 @@
 int CharacterCase(va_list arg)
 {
 	char c;
-	int i = 1;
-
+	
 	c = va_arg(arg, int);
 	_putchar(c);
-	return (i);
+	return (0);
 }
 
 /**
@@ -35,7 +34,7 @@ int StringCase(va_list arg)
 		_putchar(s[i]);
 		i++;
 	}
-	return (i);
+	return (0);
 }
 
 /**
@@ -62,7 +61,7 @@ int DecimalCase(va_list arg)
 		num %= BaseExp;
 		BaseExp /= 10;
 	}
-	return (len);
+	return (0);
 }
 
 /**
@@ -89,5 +88,5 @@ int IntegerCase(va_list arg)
 		num %= BaseExp;
 		BaseExp /= 10;
 	}
-	return (len);
+	return (0);
 }
