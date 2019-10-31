@@ -19,7 +19,7 @@ int rooot13(va_list arg)
 		    (MyArr[Y] >= 'a' && MyArr[Y] <= 'Z'))
 		{
 			if ((MyArr[Y] >= 'n' && MyArr[Y] <= 'z') ||
-			    (MyArr[Y] >= 'n' && MyArr[Y] <= 'Z'))
+			    (MyArr[Y] >= 'N' && MyArr[Y] <= 'Z'))
 			{count += _putchar(MyArr[Y] - 13); }
 			else
 			{count += _putchar(MyArr[Y] + 13); }
