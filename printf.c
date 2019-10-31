@@ -55,6 +55,7 @@ int _printf(const char *format, ...)
 		{"u", UnsignedCase},
 		{"o", OctCase},
 		{"b", binaryNum},
+		{"R", rooot13},
 		{NULL, NULL}
 	};
 

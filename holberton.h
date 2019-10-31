@@ -29,5 +29,6 @@ int IntegerCase(va_list arg);
 int OctCase(va_list arg);
 int UnsignedCase(va_list arg);
 int binaryNum(va_list arg);
+int rooot13(va_list arg);
 
 #endif
