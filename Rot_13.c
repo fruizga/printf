@@ -16,7 +16,7 @@ int rooot13(va_list arg)
 	while (MyArr[Y] != '\0')
 	{
 		if ((MyArr[Y] >= 'a' && MyArr[Y] <= 'z') ||
-		    (MyArr[Y] >= 'a' && MyArr[Y] <= 'Z'))
+		    (MyArr[Y] >= 'A' && MyArr[Y] <= 'Z'))
 		{
 			if ((MyArr[Y] >= 'n' && MyArr[Y] <= 'z') ||
 			    (MyArr[Y] >= 'N' && MyArr[Y] <= 'Z'))
